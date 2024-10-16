@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+            body {
+            background-color: darkcyan; /*  background  */
+        }
+        .cart-container {
+            display: flex; /* To align the cart content and iframe side by side */
+            margin-top: 20px;
+        }
+        .cart-content {
+            flex: 1; /* The cart content will take up remaining space */
+        }
+        .cart-item {
+            border-bottom: 1px solid #dee2e6;
+            padding: 20px;
+        }
+        .cart-item img {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .cart-item h4 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .cart-item p {
+            margin: 5px 0;
+        }
+        .cart-summary {
+            margin-top: 30px;
+            text-align: right;
+        }
+        .button-group {
+            justify-content: space-between;
+        }
+        
+        .recently-viewed {
+            margin-top: 30px;
+        }
+        .recently-viewed h3 {
+            margin-bottom: 20px;
+        }
+        .recently-viewed .product {
+            margin-bottom: 15px;
+        }
+        /* Styling for iframe */
+        .iframe-container {
+            width: 200px; /* Fixed width for the iframe */
+            height: auto; /* Full viewport height */
+            overflow: auto; /* Allow scrolling */
+            margin-left: 20px; /* Spacing between cart and iframe */
+        }
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container cart-container">
+        <!-- Cart Content -->
+        <div class="cart-content">
+            <h2 class="text-center">Your Shopping Cart</h2>
+            <div id="cart-items" class="row">
+                <!-- Cart items will be loaded here -->
+            </div>
+
+            <div class="cart-summary">
+                <h4>Total: ₹<span id="cart-total">0</span></h4>
+                <div class="button-group">
+                    <!-- Purchase More Items button -->
+                    <button  class="btn btn-primary" id="purchase-more-btn">Purchase More Items</button>
+
+                    <!-- Checkout button -->
+                    <button class="btn btn-primary" id="checkout-btn">Checkout</button>
+                    
+                </div>
+            </div>
+
+            <!-- Recently Viewed Products Section -->
+            <div class="recently-viewed">
+                <h3>Recently Viewed Products</h3>
+                <div id="recent-products" class="row">
+                    <!-- Recently viewed products will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Iframe on the right side -->
+        <div class="iframe-container">
+            <iframe src="productiframe.html" scrolling="no"> </iframe>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve cart items from localStorage 
+        function loadCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartTotal = 0;
+
+            cartItemsContainer.innerHTML = ''; // Clear the cart container
+
+            if (cart.length === 0) {
+                alert("No items have been purchased yet..");
+                cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+               
+            }
+            //display the cart
+            cart.forEach((item, index) => {
+                cartTotal += item.price;
+                const cartItem = document.createElement('div'); //create a div
+                cartItem.classList.add('cart-item', 'd-flex', 'align-items-center', 'justify-content-between');
+
+                cartItem.innerHTML = `
+                    <div class="d-flex align-items-center">
+                        <img src="${item.image}" alt="${item.title}">
+                        <div>
+                            <h4>${item.title}</h4>
+                            <p>Price: ₹${item.price}</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-danger btn-sm" onclick="removeFromCart(${index})">Remove</button>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+            });
+            cartTotalElement.textContent = cartTotal.toFixed(2); // it will display 299.00 instead of 299
+        }
+
+        // Remove item from the cart and save to recently viewed products
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            const removedItem = cart.splice(index, 1)[0]; // Remove the item from the cart
+
+            // Add the removed item to the recently viewed products list
+            recentlyViewed = [removedItem, ...recentlyViewed].slice(0, 5); // Keep only the last 5 items
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed)); // Update localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart(); // Reload the cart
+            loadRecentlyViewedProducts(); // Reload recently viewed products
+        }
+
+        // Navigate to checkout page on button click
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            window.location.href = 'checkout.html'; // Navigate to the checkout (address input) page
+        });
+
+        // Navigate to shopbags page for purchasing more items
+        document.getElementById('purchase-more-btn').addEventListener('click', function() {
+            window.location.href = 'shopbags.html'; // Navigate to the shopping bags page
+        });
+
+        // Load Recently Viewed Products from localStorage
+        function loadRecentlyViewedProducts() {
+            const recentProductsContainer = document.getElementById('recent-products');
+            const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            
+            recentProductsContainer.innerHTML = ''; // Clear recent products container
+
+            if (recentlyViewed.length === 0) {
+                recentProductsContainer.innerHTML = '<p>No recently viewed products.</p>';
+                return;
+            }
+
+            recentlyViewed.forEach((product) => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('product', 'col-4');
+                productDiv.innerHTML = `
+                    <div class="card">
+                        <img src="${product.image}" class="card-img-top" alt="${product.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.title}</h5>
+                            <p class="card-text">Price: ₹${product.price}</p>
+                        </div>
+                    </div>
+                `;
+                recentProductsContainer.appendChild(productDiv);
+            });
+        }
+
+        // Initialize the cart and recently viewed products on page load
+        window.onload = function() {
+            loadCart();
+            loadRecentlyViewedProducts();
+        };
+    </script>
+</body>
+</html>

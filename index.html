@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClickCart Zone</title>
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: darkcyan; /*  background for better visibility */
+        }
+         .hero {
+            background-color: #f2f2f2;
+            padding: 7px;
+            text-align: center;
+        }
+        .logo {
+            max-width: 150px; /* max-width for the logo */
+        }
+        .product-list img { 
+            width: 80%;
+            height: 80%;
+        }
+        .product-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .product-name {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .product-price {
+            color: #b84343;
+        }
+        .product-item img:hover {
+            transform: scale(1.5); /* hover to  image  */
+}
+        @media (max-width: 576px) {
+    .logo {
+        max-width: 120px; /* Adjust logo size for smaller screens if necessary */
+    }
+} 
+    </style>
+</head>
+<body>
+<div class="sticky-top">
+ <!-- Header -->
+<header class="bg-primary text-white">
+    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <!-- Logo -->
+        <img src="logo.png" alt="ClickCart Logo" class="logo me-3 mb-2 mb-md-0" style="max-width: 150px;">
+        <!-- Website Title -->
+        <h1 class="m-0">ClickCart Zone</h1>
+        <div class="input-group mb-2 mb-md-0 ms-md-3">
+            <input type="text" class="form-control" title="Search" name="q" autocomplete="off" placeholder="Search.." aria-label="Search">
+        </div>
+        <!-- Sign In Button -->
+        <button class="btn btn-light ms-md-4" data-bs-toggle="modal" data-bs-target="#signInModal">Sign In</button>
+    </div>
+</header>
+
+    <div class="content bg-dark text-white">
+        <marquee direction="left" width="100%" scrollamount="10" onmouseover="this.stop();" onmouseout="this.start();">
+        <span class="header-promotion marquee-span">Use Code NEW10 and get 10% OFF* on non-discounted Watches over Rs. 2499. Maximum Discount: Rs. 1200. T&amp;C Apply*.</span>
+        <span class="header-promotion marquee-span">Get up to ₹750 cashback on payment via Mobikwik wallet over Rs. 2499. T&amp;C Apply*.</span>
+        </marquee>
+        </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html"> Our Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shopbags.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals.html">Deals</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div> <div class="star-icon ms-4">
+            <img id="star-icon" src="star.png" alt="Star" style="display: none; width: 20px;">
+        </div>
+    </nav>
+</div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Welcome to the ClickCart Zone!</h2>
+        <p>Shop the best products at amazing prices.</p>
+    </div>
+     <!-- Carousel Section -->
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="slide1.webp" alt="Los Angeles" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Welcome to ClickCart Zone!</h5>
+                <p>Shop the best products at amazing prices.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="slide2.webp" alt="Chicago" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>New Arrivals!</h5>
+                <p>Check out our latest products in stock.</p>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="slide3.webp" alt="New York" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>Exclusive Deals!</h5>
+                <p>Don't miss out on our latest offers and discounts.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+    <!-- Product Section -->
+    <div class="container mt-5">
+        <h3 class="text-center mb-4">ClickCart Products</h3>
+        <div class="row product-list">
+            <!-- Bag Product -->
+            <div class="col-md-4 product-item">
+                <a href="shopbags.html">
+                    <img src="group bags.jpg" alt="Stylish Backpack">
+                </a>
+                <p class="product-name">Stylish Backpack</p>
+                <p class="product-price">₹199.99</p>
+            </div>
+
+            <!-- Watch Product -->
+            <div class="col-md-4 product-item">
+                <a href="shopwatch.html">
+                    <img src="group watch.jfif" alt="Luxury Watch">
+                </a>
+                <p class="product-name">Luxury Watch</p>
+                <p class="product-price">₹149.99</p>
+            </div>
+
+            <!-- Shoes Product -->
+            <div class="col-md-4 product-item">
+                <a href="shopshoes.html">
+                    <img src="group shoes11.avif" alt="Running Shoes">
+                </a>
+                <p class="product-name">Running Shoes</p>
+                <p class="product-price">₹179.99</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign In Modal -->
+    <div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signInModalLabel">Sign In</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; 2024 Amazon Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

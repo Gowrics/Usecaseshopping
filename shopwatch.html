@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design for mobile devices -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> <!-- Link to Bootstrap CSS -->
+    <link rel="icon" href="icon.png"> <!-- Set the favicon for the webpage -->
+    <title>Online Shopping For Women's Bags</title> <!-- Title displayed in the browser tab -->
+    <style>
+      body {
+            background-color: darkcyan; /* Light background for better visibility */
+        }
+        .product-card {
+            border: 1px solid #dee2e6; /* Card border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 10px; /* Small padding for the card */
+            margin: 10px 0; /* Margin between cards */
+            transition: transform 0.2s; /* Smooth scaling effect */
+        }
+        .product-card:hover {
+            transform: scale(1.02); /* Scale up slightly on hover */
+        }
+        .product-image {
+            max-width: 100%; /* Responsive image */
+            height: auto; /* Maintain aspect ratio */
+         }
+        .product-title {
+            font-family: Arial, sans-serif; /* Set a consistent font family */
+            font-size: 1.2em; /* Set a consistent font size */
+            margin: 10px 0; /* Margin around the title */
+            color: white; /* Dark text color */
+        }
+    </style>
+</head>
+<body>
+    <div class="sticky-top">
+    <header class="bg-primary text-white py-3">
+        <div class="container-fluid d-flex align-items-center" style="height: 90px;">
+            <!-- Logo -->
+            <img src="logo.png" alt="ClickCart Logo" class="logo me-3"style="height: 90px;">
+            <!-- Website Title -->
+            <center><h1 class="m-0">ClickCart Zone</h1></center> 
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html"> Our Products</a>
+                    </li>
+                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="shopbags.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deals.html">Deals</a> <!-- Add this link -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="orders.html">Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cart.html">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+</div>
+    <h1 style="background-color: antiquewhite;text-align: center">Welcome to Clickcart Online Shopping</h1> <!-- Main heading -->
+    
+    <!-- Insert the Deals Section here -->
+   
+<div class="container mt-5">
+    <h2 class="text-center bg-primary">Special Deals</h2>
+    <marquee direction="right" scrollamount="25">   
+    <div class="row">
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="deal1.webp" alt="Deal Product 1" class="product-image">
+                <h3 class="product-title">Luxury Handbag - 20% Off</h3>
+                <p class="product-description">
+                    Original Price: ₹1200 <br>
+                    Discounted Price: ₹960<br>
+                    Delivery: Free
+                </p>
+                 </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="deal2.webp" alt="Deal Product 2" class="product-image"style="height:270px;width:450px;">
+                <h3 class="product-title">Women's Clutch - 15% Off</h3>
+                <p class="product-description">
+                    Original Price: ₹700 <br>
+                    Discounted Price: ₹595<br>
+                    Delivery: Free
+                </p>
+                   </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product-card">
+                <img src="deal3.webp" alt="Deal Product 3" class="product-image" style="height:270px;width:450px;">
+                <h3 class="product-title">Leather Tote Bag - 30% Off</h3>
+                <p class="product-description">
+                    Original Price: ₹1800 <br>
+                    Discounted Price: ₹1260<br>
+                    Delivery: Free
+                </p>
+                </div>
+        </div>
+    </div>
+    </marquee>
+</div>
+
+    <div class="container mt-4"> <!-- Main container for the products -->
+        <div class="row"> <!-- Row for product cards -->
+            <!-- Product Card 1 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-1"> <!-- Product card -->
+                    <img src="watch1.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;" /> <!-- Product image -->
+                    <h2 id="product-title-1" class="product-title">Ross Brown Synthetic Leather Women's Bag</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹492<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹492<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(0)">Buy Now</button> <!-- Updated with addToCart function -->
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-2">
+                    <img src="watch2.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;"/>
+                    <h2 id="product-title-2" class="product-title">EXOTIC Women Hand/Sling Bag</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹592<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹592<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(1)">Buy Now</button> <!-- Updated with addToCart function -->
+     
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-3">
+                    <img src="watch3.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;"/>
+                    <h2 id="product-title-3" class="product-title">WOMAN MAX Solid Black Tote Leather Bag</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹1092<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹1092<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(2)">Buy Now</button> <!-- Updated with addToCart function -->
+     
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4"> <!-- Second row for product cards -->
+            <!-- Product Card 4 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-4">
+                    <img src="watch4.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;"/>
+                    <h2 id="product-title-4" class="product-title">Exotic Women Khaki Leather Handbag</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹1182<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹1182<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(3)">Buy Now</button> <!-- Updated with addToCart function -->
+     
+                </div>
+            </div>
+
+            <!-- Product Card 5 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-5">
+                    <img src="watch5.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;" />
+                    <h2 id="product-title-5" class="product-title">Gorgeous Handbags For Women Combo</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹900<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹900<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(4)">Buy Now</button> <!-- Updated with addToCart function -->
+     
+                </div>
+            </div>
+
+            <!-- Product Card 6 -->
+            <div class="col-md-4">
+                <div class="product-card" role="article" aria-labelledby="product-title-6">
+                    <img src="watch6.webp" alt="Product Image" class="product-image" style="height:300px;width:450px;"/>
+                    <h2 id="product-title-6" class="product-title">Women Sling Leather Bags Gifts Bag</h2>
+                    <p class="product-description">
+                        Base price &#160&#160&#160&#160   ₹800<br>
+                        Delivery   &#160&#160&#160&#160&#160&#160 &#160  Free<br>
+                        Total      &#160&#160&#160&#160 &#160&#160&#160&#160&#160&#160&#160&#160    ₹800<br>
+                    </p>
+                    <button class="cta-button btn btn-primary" onclick="addToCart(5)">Buy Now</button> <!-- Updated with addToCart function -->
+     
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end">
+            <a href="shopshoes.html" class="btn btn-info view-more-btn">View More Products</a> <!-- Link to view more products -->
+        </div>
+
+    </div>
+    <!-- Footer -->
+    <footer class="bg-light text-center py-3 mt-5">
+        <p>&copy; 2024 Amazon Clone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Sample product data - you should pass the real data dynamically
+        const products = [
+            {
+                title: 'Ross Brown Synthetic Leather Women\'s Bag',
+                price: 492,
+                image: 'watch1.webp'
+            },
+            {
+                title: 'EXOTIC Women Hand/Sling Bag',
+                price: 592,
+                image: 'watch2.webp'
+            },
+            {
+                title: 'WOMAN MAX Solid Black Tote Leather Bag',
+                price: 1092,
+                image: 'watch3.webp'
+            },
+            {
+                title: 'Exotic Women Khaki Leather Handbag',
+                price: 1182,
+                image: 'watch4.webp'
+            },
+            {
+                title: 'Gorgeous Handbags For Women Combo',
+                price: 900,
+                image: 'watch5.webp'
+            },
+            {
+                title: 'Women Sling Leather Bags Gifts Bag',
+                price: 800,
+                image: 'watch6.webp'
+            }
+        ];
+
+        // Add to cart function
+        function addToCart(productIndex) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // Retrieve cart from localStorage
+            cart.push(products[productIndex]); // Add selected product to the cart
+            localStorage.setItem('cart', JSON.stringify(cart)); // Save the updated cart back to localStorage
+            alert('Product added to cart!'); // Provide feedback to the user
+            window.location.href = "cart.html"; // Redirect to cart page after adding the item
+        }
+    </script>
+</body>
+</html>
